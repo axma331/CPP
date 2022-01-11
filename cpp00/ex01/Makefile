@@ -1,11 +1,12 @@
-NAME		:= 
+NAME		:= contact
 RM			:= rm -rf
 
 CXX			:= clang++
 CXXFLAGS	:= -Wall -Wextra -Werror
 CXXFLAGS	+= -std=c++98
 
-SRC			:= .cpp
+HEADE		:= $(NAME).hpp
+SRC			:= $(NAME).cpp
 OBJ			:= $(SRC:%.cpp=%.o)
 
 all: 		$(NAME)
