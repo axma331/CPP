@@ -18,7 +18,7 @@ void    PhoneBook::using_book(void) {
 		std::getline(std::cin, command);
 		if (!command.compare("EXIT"))
 			break;
-        if (!command.compare("ADD")) {
+        else if (!command.compare("ADD")) {
             Note[id].add(id);			
 			if (id + 1 == max_id) {
 				std::cout << "WARNING: phonebook is full!" << std::endl;
@@ -27,7 +27,7 @@ void    PhoneBook::using_book(void) {
 			++id %= max_id;
 			continue;
 		}
-		if (!command.compare("SEARCH")) {
+		else if (!command.compare("SEARCH")) {
 			std::cout << "*" << std::setw(44) << std::setfill('-') << "*" << std::endl;
 			std::cout << "|     index|First name| Last name|  Nickname|" << std::endl;
 			std::cout << "*" << std::setw(44) << std::setfill('-') << "*" << std::setfill(' ') << std::endl;
@@ -47,5 +47,7 @@ void    PhoneBook::using_book(void) {
 			}
 			continue;
 		}
+		else
+			std::cout << "Incorrect command!" << std::endl;
     }
 }
