@@ -5,8 +5,8 @@ CXX			:= clang++
 CXXFLAGS	:= -Wall -Wextra -Werror
 CXXFLAGS	+= -std=c++98
 
-HEADE		:= $(NAME).hpp
-SRC			:= $(NAME).cpp
+HEADE		:= contact.hpp phonebook.hpp
+SRC			:= phonebook.cpp contact.cpp main.cpp
 OBJ			:= $(SRC:%.cpp=%.o)
 
 all: 		$(NAME)
@@ -14,7 +14,7 @@ all: 		$(NAME)
 $(NAME):	$(OBJ)
 			$(CXX) $(OBJ) -o $@
 
-$(OBJ):		$(SRC)
+%.o:		%.cpp
 			$(CXX) $(CFLAGS) -c $< -o $@ 
 clean:
 			$(RM) $(OBJ)
