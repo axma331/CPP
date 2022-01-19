@@ -12,7 +12,7 @@ public:
     void				using_book(void);
 
 private:
-	static const int	max_id = 3;
+	static const int	max_id = 8;
     Contact				Note[max_id];
 };
 

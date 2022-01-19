@@ -32,7 +32,7 @@ void    PhoneBook::using_book(void) {
 			std::cout << "|     index|First name| Last name|  Nickname|" << std::endl;
 			std::cout << "*" << std::setw(44) << std::setfill('-') << "*" << std::setfill(' ') << std::endl;
 
-			for (int i = 0; i < (rewrite ? max_id : id); i++)
+			for (int i = 0; i < (rewrite ? max_id : id); ++i)
 				Note[i].show_in_the_list();
 			while(rewrite || id) {
 				std::cout << "Please, enter the index of the contact to view: " << std::endl;
