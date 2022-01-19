@@ -34,8 +34,8 @@ void	Contact::show(void) {
 }
 
 void	Contact::show_in_the_list(void) {
-	std::cout << "|" << std::setw(9) << id << ".";
-	std::cout << "|" << std::setw(10) << firstname.substr(0, 9) + ".";
-	std::cout << "|" << std::setw(10) << lastname.substr(0, 9) + ".";
-	std::cout << "|" << std::setw(11) << nickname.substr(0, 9) + ".|" << std::endl;
+	std::cout << "|" << std::setw(9) << id;
+	std::cout << "|" << std::setw(10) << (firstname.length() < 11 ? firstname.substr(0, 10) : firstname.substr(0, 9) + ".");
+	std::cout << "|" << std::setw(10) << (lastname.length() < 11 ? lastname.substr(0, 10) : lastname.substr(0, 9) + ".");
+	std::cout << "|" << std::setw(11) << (nickname.length() < 11 ? nickname.substr(0, 10) : nickname.substr(0, 9)  + ".") << '|' << std::endl;
 }
