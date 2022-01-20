@@ -48,6 +48,6 @@ void    PhoneBook::using_book(void) {
 			continue;
 		}
 		else
-			std::cout << "Incorrect command!" << std::endl;
+			std::cout << "Incorrect or empty command!" << std::endl;
     }
 }
