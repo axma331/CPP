@@ -3,10 +3,7 @@
 
 
 int main(void) {
-
     PhoneBook X;
-
-    X.using_book();
-    
+    X.using_book();    
     return 0;
 }
