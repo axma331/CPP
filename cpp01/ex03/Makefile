@@ -5,8 +5,8 @@ CXX			:= c++
 CXXFLAGS	:= -Wall -Wextra -Werror
 CXXFLAGS	+= -std=c++98
 
-# HEADE		:= .hpp
-SRC			:= main.cpp
+HEADE		:= Weapon.hpp	HumanA.hpp	HumanB.hpp
+SRC			:= Weapon.cpp	HumanA.cpp	HumanB.cpp	main.cpp
 OBJ			:= $(SRC:%.cpp=%.o)
 
 all: 		$(NAME) Makefile
@@ -14,7 +14,7 @@ all: 		$(NAME) Makefile
 $(NAME):	$(OBJ)
 			$(CXX) $(OBJ) -o $@
 
-%.o:		%.cpp
+%.o:		%.cpp $(HEADE)
 			$(CXX) $(CFLAGS) -c $< -o $@ 
 clean:
 			$(RM) $(OBJ)
