@@ -14,7 +14,7 @@ all: 		$(NAME) Makefile
 $(NAME):	$(OBJ)
 			$(CXX) $(OBJ) -o $@
 
-%.o:		%.cpp
+%.o:		%.cpp $(HEADE)
 			$(CXX) $(CFLAGS) -c $< -o $@ 
 clean:
 			$(RM) $(OBJ)

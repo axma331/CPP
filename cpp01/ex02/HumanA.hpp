@@ -10,7 +10,7 @@ public:
     void        attack(void) const;
 private:
     std::string _name;
-    Weapon      _weapon;
+    Weapon      &_weapon;
 };
 
 #endif

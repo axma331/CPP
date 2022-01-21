@@ -2,12 +2,24 @@
 #include "HumanB.hpp"
 
 int main(void) {
-	Weapon W("crude spiked club");
+	{
+		std::cout << std::endl;
+		Weapon w("СТАРОЕ");
 
-	HumanA Ataking("David", W);
-	HumanB Defending("Galiaf", W);
-	Ataking.attack();
-	Defending.attack();
-
+		HumanA Ataking("David", w);
+		Ataking.attack();
+		w.setType("НОВОЕ");	
+		Ataking.attack();
+	}
+	{
+		std::cout << std::endl;
+		Weapon w("СТАРОЕ");
+		
+		HumanB Defending("Galiaf");
+		Defending.setWeapon(w);
+		Defending.attack();
+		w.setType("НОВОЕ");
+		Defending.attack();
+	}
 	return 0;
 }
