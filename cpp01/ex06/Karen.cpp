@@ -23,14 +23,18 @@ void	Karen::error(void) {
 	std::cout << "ERROR:\nThis is unacceptable, I want to speak to the manager now." << std::endl;
 };
 
-void	Karen::complain(std::string level) {
+void	Karen::karenFilter(const std::string level) {
 	void	(*function[4])() = {Karen::debug, Karen::info, Karen::warning, Karen::error};
 	std::string	s[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	for (int i(0); i < 4; ++i) {
-		if (level == s[i]) {
-			function[i]();
-			return;
-		}
+	int i(0);
+	if (level == s[i])
+	switch (i) {
+	case 1: function[i]();
+	case 2: function[i]();
+	case 3: function[i]();
+	case 4: function[i]();
+	default:	std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+		break;
 	}
 	return;
 }
