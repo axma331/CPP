@@ -1,6 +1,5 @@
 #include "Replace.hpp"
 #include <iomanip>
-#include <fstream>
 
 int main(int ac, const char *av[]) {
 	if (ac != 4)
@@ -10,7 +9,9 @@ int main(int ac, const char *av[]) {
 	F.getValue();
 	if (!F.check_length())
 		return 1;
-	if (F.replace())
+	if (!F.replace()) {
+		std::cout << "Replacement failed"<< std::endl;
 		return 1;
+	}
 	return 0;
 }

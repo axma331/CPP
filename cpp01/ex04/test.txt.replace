@@ -1,2 +1,2 @@
-auto open test open_
-auto open test _open  
+auto close test close_
+auto close test _close

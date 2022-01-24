@@ -22,7 +22,6 @@ void	Replace::getValue(void) const {
 	std::cout << "ofn\t" << ofn << std::endl;
 	std::cout << "s1\t" << s1 << std::endl;
 	std::cout << "s2\t" << s2 << std::endl;
-	// std::cout << "buffer\t" << buffer << std::endl;
 }
 
 int	Replace::check_length(void) const {
@@ -49,25 +48,21 @@ int	Replace::iof_is_open(void) {
 int	Replace::replace(void) {
 	if (!iof_is_open())
 		return 1;
-	
 	ifs.seekg(0, std::ios::end);
 	size_t size = ifs.tellg();
 	std::string buffer(size, ' ');
 	ifs.seekg(0);
 	ifs.read(&buffer[0], size);
 
-	int i(0);
+	int first_entry(0);
 	size_t found(0);
 	size_t ofound(0);
-	size_t diff(0);
-	std::string res;
+	std::string result;
 	while ((found = buffer.find(s1, found)) && found != buffer.npos) {
-		diff = found - ofound;
-		res += i++ ? buffer.substr(ofound, diff) : buffer.substr(0, found);
-		res += s2;
+		result += first_entry++ ? buffer.substr(ofound, found - ofound) : buffer.substr(0, found);
+		result += s2;
 		ofound = found++ + s1.length();
-		std::cout << res << std::endl;
 	}
-	ofs << buffer;
-	return 2;
+	ofs << result;
+	return 1;
 }
