@@ -9,7 +9,7 @@ public:
 	~Replace(void);
 
 	void	set_iofilename(const std::string &ifn, const std::string &of_postfix);
-	int		check_length(void) const;	
+	int		empty_str(void) const;	
 	int		iof_is_open(void);	
 	void	getValue(void) const;
 	int		replace(void);

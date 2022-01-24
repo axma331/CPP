@@ -5,7 +5,6 @@ Replace::Replace(const std::string &s1, const std::string &s2) : s1(s1), s2(s2) 
 }
 
 Replace::~Replace(void) {
-	std::cout << "Distructed Replace!" << std::endl;
 	if (ifs.is_open())
 		ifs.close();
 	if (ofs.is_open())
@@ -17,16 +16,10 @@ void	Replace::set_iofilename(const std::string &ifn, const std::string &of_postf
 	this->ofn = ifn + of_postfix;
 }
 
-void	Replace::getValue(void) const {
-	std::cout << "ifn\t" << ifn << std::endl;
-	std::cout << "ofn\t" << ofn << std::endl;
-	std::cout << "s1\t" << s1 << std::endl;
-	std::cout << "s2\t" << s2 << std::endl;
-}
-
-int	Replace::check_length(void) const {
+int	Replace::empty_str(void) const {
 	if (!s1.length() || !s2.length()) {
 		std::cout << "Error! Empty arguments values!"<< std::endl;
+		return 0;
 	}
 	return 1;
 }
@@ -46,22 +39,26 @@ int	Replace::iof_is_open(void) {
 }
 
 int	Replace::replace(void) {
+	int			first_entry(0);
+	size_t		found(0);
+	size_t		old_pos(0);
+	std::string	result;
+
+	if (!empty_str())
+		return 0;
 	if (!iof_is_open())
-		return 1;
+		return 0;
+
 	ifs.seekg(0, std::ios::end);
 	size_t size = ifs.tellg();
 	std::string buffer(size, ' ');
 	ifs.seekg(0);
 	ifs.read(&buffer[0], size);
-
-	int first_entry(0);
-	size_t found(0);
-	size_t ofound(0);
-	std::string result;
+	
 	while ((found = buffer.find(s1, found)) && found != buffer.npos) {
-		result += first_entry++ ? buffer.substr(ofound, found - ofound) : buffer.substr(0, found);
+		result += first_entry++ ? buffer.substr(old_pos, found - old_pos) : buffer.substr(0, found);
 		result += s2;
-		ofound = found++ + s1.length();
+		old_pos = found++ + s1.length();
 	}
 	ofs << result;
 	return 1;
