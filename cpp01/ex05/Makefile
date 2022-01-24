@@ -1,4 +1,4 @@
-NAME		:= replace
+NAME		:= karen
 RM			:= rm -rf
 
 CXX			:= c++
@@ -6,8 +6,8 @@ CXXFLAGS	:= -Wall -Wextra -Werror
 CXXFLAGS	+= -g
 CXXFLAGS	+= -std=c++98
 
-HEADE		:= Replace.hpp
-SRC			:= Replace.cpp main.cpp
+HEADE		:= Karen.hpp
+SRC			:= Karen.cpp main.cpp
 OBJ			:= $(SRC:%.cpp=%.o)
 
 all: 		$(NAME) Makefile
