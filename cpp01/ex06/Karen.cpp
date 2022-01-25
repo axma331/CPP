@@ -24,15 +24,23 @@ void	Karen::error(void) {
 };
 
 void	Karen::karenFilter(const std::string level) {
-	void	(*function[4])() = {Karen::debug, Karen::info, Karen::warning, Karen::error};
-	std::string	s[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	int i(0);
-	if (level == s[i])
+	void	(*function[4])() = {Karen::debug,
+								Karen::info,
+								Karen::warning,
+								Karen::error};
+	std::string	s[4] = {"DEBUG",
+						"INFO",
+						"WARNING",
+						"ERROR"};
+	int i(-1);
+	while(++i < 4)
+		if (level == s[i])
+			break;
 	switch (i) {
-	case 1: function[i]();
-	case 2: function[i]();
-	case 3: function[i]();
-	case 4: function[i]();
+	case 0: function[0]();
+	case 1: function[1]();
+	case 2: function[2]();
+	case 3: function[3]();
 	default:	std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 		break;
 	}
