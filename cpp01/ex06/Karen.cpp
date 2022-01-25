@@ -34,15 +34,15 @@ void	Karen::karenFilter(const std::string level) {
 						"ERROR"};
 	int i(-1);
 	while(++i < 4)
-		if (level == s[i])
+		if (!s[i].compare(level))
 			break;
 	switch (i) {
-	case 0: function[0]();
-	case 1: function[1]();
-	case 2: function[2]();
-	case 3: function[3]();
-	default:	std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-		break;
+		case 0: function[0]();
+		case 1: function[1]();
+		case 2: function[2]();
+		case 3: function[3]();
+			break;
+		default:	std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 	}
 	return;
 }
