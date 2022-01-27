@@ -13,8 +13,8 @@ public:
 	int		getRawBits(void) const;
 	void	setRawBits(int const rew);
 private:
-	int					_fixed_point_number;
-	static const int	_number_of_fractional_bits;
+	int					_rawBits;
+	static const int	_shift;
 };
 
 #endif
