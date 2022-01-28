@@ -10,12 +10,12 @@ Fixed::Fixed(void) : _rawBits(0) {
 
 Fixed::Fixed(const int value) {
 	std::cout << "Int constructor called" << std::endl;
-	this->_rawBits = value << this->_shift;
+	this->_rawBits = value << Fixed::_shift;
 }
 
 Fixed::Fixed(const float value) {
 	std::cout << "Float constructor called" << std::endl;
-	this->_rawBits = roundf(value * (1 << this->_shift));
+	this->_rawBits = roundf(value * (1 << Fixed::_shift));
 }
 
 Fixed::Fixed(const Fixed &other) {
@@ -83,11 +83,11 @@ Fixed	Fixed::operator-- (int) {
 /*	Member finction	*/
 
 int	Fixed::toInt(void) const {
-	return this->_rawBits >> this->_shift;
+	return this->_rawBits >> Fixed::_shift;
 }
 
 float	Fixed::toFloat(void) const {
-	return (float)this->_rawBits / (1 << this->_shift);
+	return (float)this->_rawBits / (1 << Fixed::_shift);
 }
 
 int	Fixed::getRawBits(void) const {
