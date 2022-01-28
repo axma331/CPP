@@ -9,28 +9,28 @@ Fixed::Fixed(void) : _rawBits(0) {
 }
 
 Fixed::Fixed(const int value) {
-	// std::cout << "Int constructor called" << std::endl;
+	std::cout << "Int constructor called" << std::endl;
 	this->_rawBits = value << this->_shift;
 }
 
 Fixed::Fixed(const float value) {
-	// std::cout << "Float constructor called" << std::endl;
+	std::cout << "Float constructor called" << std::endl;
 	this->_rawBits = roundf(value * (1 << this->_shift));
 }
 
 Fixed::Fixed(const Fixed &other) {
-	// std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Copy constructor called" << std::endl;
 	*this = other;
 }
 
 Fixed::~Fixed(void) {
-	// std::cout << "Destructor called" << std::endl;
+	std::cout << "Destructor called" << std::endl;
 }
 
 /*	Assignment operators overload: = , +, -, *, /, ++, --, (post)++, (post)--	*/
 
 Fixed&	Fixed::operator= (const Fixed &other) {
-	// std::cout << "Copy assignment operator calle" << std::endl;
+	std::cout << "Copy assignment operator calle" << std::endl;
 	if (this != &other)
 		this->_rawBits = other._rawBits;
 	return *this;
@@ -54,7 +54,7 @@ Fixed&	Fixed::operator* (const Fixed &other) {
 Fixed&	Fixed::operator/ (const Fixed &other) {
 	if (!other._rawBits)
 		return *this;
-	this->_rawBits /= other._rawBits;
+	this->_rawBits /= other.toFloat();
 	return *this;
 }
 
@@ -75,7 +75,7 @@ Fixed	Fixed::operator++ (int) {
 }
 
 Fixed	Fixed::operator-- (int) {
-	Fixed tmp(_rawBits);
+	Fixed tmp(*this);
 	--(*this);
 	return tmp;
 }
@@ -91,7 +91,7 @@ float	Fixed::toFloat(void) const {
 }
 
 int	Fixed::getRawBits(void) const {
-	// std::cout << "getRawBits member function called" << std::endl;
+	std::cout << "getRawBits member function called" << std::endl;
 	return this->_rawBits;
 }
 
