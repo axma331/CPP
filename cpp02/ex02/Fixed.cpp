@@ -47,12 +47,14 @@ Fixed&	Fixed::operator- (const Fixed &other) {
 }
 
 Fixed&	Fixed::operator* (const Fixed &other) {
-		this->_rawBits *= other._rawBits;
+		this->_rawBits *= other.toFloat();
 	return *this;
 }
 
 Fixed&	Fixed::operator/ (const Fixed &other) {
-		this->_rawBits /= other._rawBits;
+	if (!other._rawBits)
+		return *this;
+	this->_rawBits /= other._rawBits;
 	return *this;
 }
 
@@ -67,7 +69,7 @@ Fixed&	Fixed::operator-- (void) {
 }
 
 Fixed	Fixed::operator++ (int) {
-	Fixed tmp(_rawBits);
+	Fixed tmp(*this);
 		++(*this);
 	return tmp;
 }
