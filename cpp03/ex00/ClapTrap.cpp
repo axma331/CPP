@@ -11,8 +11,9 @@ ClapTrap::ClapTrap(const ClapTrap& other) {
 }
 
 ClapTrap&	ClapTrap::operator= (const ClapTrap& other) {
-	std::cout << "Copy assignment operator colled" << std::endl;
+	std::cout << "Assignment operator colled" << std::endl;
 	if (this != &other) {
+	this->_name = other._name;
 	this->_hit_points = other._hit_points;
 	this->_energy_points = other._energy_points;
 	this->_attack_damage = other._attack_damage;
@@ -22,40 +23,39 @@ ClapTrap&	ClapTrap::operator= (const ClapTrap& other) {
 
 ClapTrap::~ClapTrap(void) {
 	std::cout << "Destructor colled" << std::endl;
-	return;
 }
 
 void	ClapTrap::attack(const std::string& target) {
-	std::cout << this->_name << " attacks " << target << "causing" << this->_attack_damage << "points of damage" << std::endl;
+	std::cout << this->_name << " attacks " << target << " causing "
+		 << this->_attack_damage << " points of damage" << std::endl;
 	if (this->_energy_points)
-		--this->_energy_points;
-	
+		--this->_energy_points;	
 
 }
 
 void	ClapTrap::takeDamage(unsigned int amount) {
 	std::cout << this->_name << " take " << amount << " damage" << std::endl;
 	if (_hit_points)
-		if (this->_hit_points-=amount < 0) {
-			this->_hit_points = 0;
-			this->_energy_points = 0;
-			std::cout << " dead!" << std::endl;
-		}
-
-		
-
+		this->_hit_points-=amount;
+	if (this->_hit_points <= 0) {
+		this->_hit_points = 0;
+		std::cout << this->_name << " is dead!" << std::endl;
+		return;
+	}
+	std::cout << this->_name << " has " << this->_hit_points << " hit point left" << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount) {
-	std::cout << this->_name << " be repaired " << amount << " hit points" << std::endl;
-	if (this->_energy_points && this->_hit_points < 10) {
+	if (this->_energy_points && 0 < this->_hit_points && this->_hit_points < 10) {
 		--this->_energy_points;
 		this->_hit_points += amount;
+		std::cout << this->_name << " has been repaierd by " << amount << " points" << std::endl;
 	}
 	else if (this->_hit_points >= 10)
 		std::cout << "Hit points is full"<< std::endl;
-	else
+	else if (!this->_energy_points)
 		std::cout << "You don`t have energy points!"<< std::endl;
-
+	else if (!this->_energy_points)
+		std::cout << "you can't revive the dead" << std::endl;
 
 }

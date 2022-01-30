@@ -1,6 +1,7 @@
 #ifndef CLAPTRAAP_HPP
 # define CLAPTRAAP_HPP
 #include <iostream>
+#include <string>
 
 class ClapTrap {
 public:
