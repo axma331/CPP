@@ -3,12 +3,12 @@ RM			:= rm -rf
 
 CXX			:= c++
 CXXFLAGS	:= -std=c++98
-CXXFLAGS	+= -g
-CXXFLAGS	+= -Wall -Wextra -Werror
+# CXXFLAGS	+= -Wall -Wextra -Werror
+# CXXFLAGS	+= -g
 
-HEADE		:= ScavTrap.hpp ClapTrap.hpp
-SRC			:= ScavTrap.cpp ClapTrap.cpp	main.cpp
-OBJ			:= $(SRC:%.cpp=%.o)
+HEADE		:= ClapTrap.hpp	ScavTrap.hpp
+SRC			= ClapTrap.cpp	ScavTrap.cpp	main.cpp
+OBJ			= $(SRC:%.cpp=%.o)
 
 all: 		$(NAME) Makefile
 

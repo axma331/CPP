@@ -1,17 +1,21 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 #include <iostream>
 
 int	main() {
 
-	ClapTrap A("Shoma");
-	A.attack("his target");
-	A.takeDamage(2);
-	A.takeDamage(2);
-	A.takeDamage(2);
-	A.takeDamage(2);
-	A.takeDamage(2);
-	A.beRepaired(2);
-	A.beRepaired(2);
+	ClapTrap A("Warrior");
+	A.attack("Enemy");
+	A.takeDamage(4);
+	A.beRepaired(3);
+	std::cout << std::endl;
+
+	ScavTrap B("Soldier");
+	B.attack("Separatist");
+	B.takeDamage(30);
+	B.beRepaired(20);
+	B.takeDamage(30);
+	B.guardGate();
+	std::cout << std::endl;
 
 	return 0;
 }
