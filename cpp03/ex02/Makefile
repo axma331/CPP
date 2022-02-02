@@ -7,9 +7,9 @@ CXXFLAGS	:= -std=c++98
 CXXFLAGS	+= -Wall -Wextra -Werror
 # CXXFLAGS	+= -g
 
-HEADE		:= ClapTrap.hpp	ScavTrap.hpp
-SRC			= ClapTrap.cpp	ScavTrap.cpp	main.cpp
-OBJ			= $(SRC:%.cpp=%.o)
+HEADE		:= FlagTrap.hpp	ClapTrap.hpp	ScavTrap.hpp
+SRC			:= FlagTrap.cpp	ClapTrap.cpp	ScavTrap.cpp	main.cpp
+OBJ			:= $(SRC:%.cpp=%.o)
 
 all: 		$(NAME) Makefile
 

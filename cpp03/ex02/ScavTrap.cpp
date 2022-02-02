@@ -8,7 +8,7 @@ ScavTrap::ScavTrap(const std::string &name)	: ClapTrap(name) {
 	std::cout << "Default ScavTrap constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &other): ClapTrap() {
+ScavTrap::ScavTrap(const ScavTrap &other):ClapTrap() {
 	std::cout << "Copy ScavTrap constructor called" << std::endl;
 	*this = other;
 }
@@ -33,7 +33,6 @@ void	ScavTrap::attack(const std::string &target) {
 	if (this->_energy_points)
 		--this->_energy_points;
 }
-
 
 void	ScavTrap::guardGate(void) {
 	std::cout << "ScavTrap have enterred in Gate keeper mode" << std::endl;
