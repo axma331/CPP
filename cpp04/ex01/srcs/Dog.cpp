@@ -13,7 +13,7 @@ Dog::~Dog(void) {
 }
 
 Dog	&Dog::operator=(const Dog &other) {
-	std::cout << "Assignment operator is called" << std::endl;
+	std::cout << "Dog assignment operator is called" << std::endl;
 	if (this != &other)
 		this->_type = other._type;
 	return *this;

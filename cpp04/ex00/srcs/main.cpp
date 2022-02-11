@@ -19,14 +19,13 @@ int main () {
 
 	// WronAnimal and WrongCat
 	const WrongAnimal* wrongAnimal = new WrongAnimal();
-    const WrongAnimal* x = new WrongCat();
+    const WrongAnimal* wc = new WrongCat();
     std::cout << wrongAnimal->getType() << " " << std::endl;
-    std::cout << x->getType() << " " << std::endl;
-    x->makeSound();
+    std::cout << wc->getType() << " " << std::endl;
+    wc->makeSound();
     wrongAnimal->makeSound();
 	delete wrongAnimal;
-	delete x;
-
+	delete wc;
 
 return 0;
 }

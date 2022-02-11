@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <string>
+# include "Brain.hpp"
 
 class Animal {
 public:
@@ -18,21 +19,7 @@ public:
 
 protected:
 	std::string	_type;
-};
-
-class WrongAnimal {
-public:
-	WrongAnimal();
-	WrongAnimal(const std::string &type);
-	WrongAnimal(const WrongAnimal &other);
-	virtual ~WrongAnimal();
-
-	WrongAnimal	&operator=(const WrongAnimal &other);
-
-	void		makeSound() const;
-	const std::string	getType() const;
-protected:
-	std::string	_type;
+	Brain		*_brain;
 };
 
 #endif

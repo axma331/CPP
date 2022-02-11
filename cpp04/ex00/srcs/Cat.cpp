@@ -1,25 +1,21 @@
 #include "Cat.hpp"
 
-Cat::Cat(void) {
-	std::cout << "Cat default constructor called" << std::endl;
-}
-
-Cat::Cat(const std::string &type) : Animal(type) {
-	std::cout << "Cat constructor called" << std::endl;
+Cat::Cat(void): Animal("Cat") {
+	std::cout << "Cat default constructor is called" << std::endl;
 }
 
 Cat::Cat(const Cat &other) {
-	std::cout << "Cat copy constructor called" << std::endl;
+	std::cout << "Cat copy constructor is called" << std::endl;
 	*this = other;
 }
 Cat::~Cat(void) {
-	std::cout << "Cat destructor called" << std::endl;
+	std::cout << "Cat destructor is called" << std::endl;
 }
 
 Cat	&Cat::operator=(const Cat &other) {
-	std::cout << "Assignment operator called" << std::endl;
+	std::cout << "Cat assignment operator is called" << std::endl;
 	if (this != &other)
-		Animal::operator=(other);
+		this->_type = other._type;
 	return *this;
 }
 
