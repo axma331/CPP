@@ -4,7 +4,7 @@ RM				:=	rm -rf
 CXX				:=	clang++
 CXXFLAGS		:=	-std=c++98
 CXXFLAGS		+=	-Wall -Wextra -Werror -Wshadow
-# CXXFLAGS		+=	-g -fsanitize=address
+CXXFLAGS		+=	-g 
 
 HEADER_DIR		:=	./includes/
 HEADER			:=	$(addprefix $(HEADER_DIR), 	Animal.hpp	Cat.hpp	Dog.hpp Brain.hpp)

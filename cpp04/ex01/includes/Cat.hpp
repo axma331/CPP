@@ -4,15 +4,17 @@
 # include "Animal.hpp"
 # include <iostream>
 
-class Cat: private Animal {
+class Cat: public Animal {
 public:
 	Cat(void);
 	Cat(const Cat &other);
+	Cat	&operator=(const Cat &other);
 	virtual ~Cat(void);
 
-	Cat	&operator=(const Cat &other);
-
 	virtual void	makeSound(void) const;
+
+private:
+	Brain	*_brain;
 };
 
 #endif

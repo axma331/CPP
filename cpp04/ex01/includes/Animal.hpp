@@ -5,6 +5,8 @@
 # include <string>
 # include "Brain.hpp"
 
+static int n = 0;
+
 class Animal {
 public:
 	Animal(void);
@@ -19,7 +21,6 @@ public:
 
 protected:
 	std::string	_type;
-	Brain		*_brain;
 };
 
 #endif

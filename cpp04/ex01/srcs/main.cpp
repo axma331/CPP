@@ -1,10 +1,18 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
 
-int main () {
+#define N	4
 
-Cat C;
+int main() {
 
-
-return 0;
+	Animal *A[N];
+	int i(0);
+	for(; i < N; ++i)
+		!(i % 2) ? A[i] = new Cat(): A[i] = new Dog();
+	for (i = 0; i < N; ++i)
+		std::cout << A[i]->getType() << std::endl;
+	std::cout << std::endl;
+	for (i = 0; i < N; ++i)
+		delete A[i];
+	return 0;
 }
