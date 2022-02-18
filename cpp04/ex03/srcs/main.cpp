@@ -1,19 +1,24 @@
-#include "Dog.hpp"
-#include "Cat.hpp"
-
-#define N	2
+#include "MateriaSource.hpp"
+#include "Character.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
 int main() {
-
-	Animal *A[N];
-	int i(0);
-	for(; i < N; ++i)
-		!(i % 2) ? A[i] = new Cat(): A[i] = new Dog();
-	for (i = 0; i < N; ++i)
-		std::cout << A[i]->getType() << std::endl;
-	std::cout << std::endl;
-	for (i = 0; i < N; ++i)
-		delete A[i];
-
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	ICharacter* me = new Character("me");
+	AMateria* tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	ICharacter* bob = new Character("bob");
+	me->use(0, *bob);
+	me->use(1, *bob);
+	delete bob;
+	delete me;
+	delete src;
 	return 0;
 }
+

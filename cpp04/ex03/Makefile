@@ -1,16 +1,18 @@
-NAME			:=	animal
+NAME			:=	materia
 RM				:=	rm -rf
 
-CXX				:=	clang++
+CXX				:=	c++
 CXXFLAGS		:=	-std=c++98
 CXXFLAGS		+=	-Wall -Wextra -Werror -Wshadow
-CXXFLAGS		+=	-g 
+# CXXFLAGS		+=	-g 
 
 HEADER_DIR		:=	./includes/
-HEADER			:=	$(addprefix $(HEADER_DIR), 	Animal.hpp	Cat.hpp	Dog.hpp Brain.hpp)
+HEADER			:=	$(addprefix $(HEADER_DIR),	AMateria.hpp	Cure.hpp	Ice.hpp \
+												ICharacter.hpp		Character.hpp	\
+												IMateriaSource.hpp	MateriaSource.hpp)
 
 SRC_DIR			:=	./srcs/
-SRC				:=	Animal.cpp	Cat.cpp	Dog.cpp	Brain.cpp main.cpp
+SRC				:=	AMateria.cpp	Character.cpp	Cure.cpp	Ice.cpp	MateriaSource.cpp	main.cpp
 
 OBJ_DIR			:=	./.objs/
 OBJ				:=	$(addprefix $(OBJ_DIR), $(notdir $(SRC:%.cpp=%.o)))
