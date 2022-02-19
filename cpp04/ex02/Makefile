@@ -1,7 +1,7 @@
 NAME			:=	animal
 RM				:=	rm -rf
 
-CXX				:=	clang++
+CXX				:=	c++
 CXXFLAGS		:=	-std=c++98
 CXXFLAGS		+=	-Wall -Wextra -Werror -Wshadow
 CXXFLAGS		+=	-g 

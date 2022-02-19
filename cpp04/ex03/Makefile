@@ -1,21 +1,20 @@
-NAME			:=	materia
-RM				:=	rm -rf
+NAME			=	materia
+RM				=	rm -rf
 
-CXX				:=	c++
-CXXFLAGS		:=	-std=c++98
+CXX				=	c++
+CXXFLAGS		=	-std=c++98
 CXXFLAGS		+=	-Wall -Wextra -Werror -Wshadow
-# CXXFLAGS		+=	-g 
+CXXFLAGS		+=	-g 
 
-HEADER_DIR		:=	./includes/
-HEADER			:=	$(addprefix $(HEADER_DIR),	AMateria.hpp	Cure.hpp	Ice.hpp \
-												ICharacter.hpp		Character.hpp	\
-												IMateriaSource.hpp	MateriaSource.hpp)
+HEADER_DIR		=	./includes/
+HEADER			=	$(addprefix $(HEADER_DIR),	AMateria.hpp		ICharacter.hpp		Character.hpp	\
+												Ice.hpp	Cure.hpp	IMateriaSource.hpp	MateriaSource.hpp)
 
-SRC_DIR			:=	./srcs/
-SRC				:=	AMateria.cpp	Character.cpp	Cure.cpp	Ice.cpp	MateriaSource.cpp	main.cpp
+SRC_DIR			=	./srcs/
+SRC				=	main.cpp	AMateria.cpp	Character.cpp	Ice.cpp	Cure.cpp	MateriaSource.cpp
 
-OBJ_DIR			:=	./.objs/
-OBJ				:=	$(addprefix $(OBJ_DIR), $(notdir $(SRC:%.cpp=%.o)))
+OBJ_DIR			=	./.objs/
+OBJ				=	$(addprefix $(OBJ_DIR), $(notdir $(SRC:%.cpp=%.o)))
 
 all:			$(NAME)		Makefile
 

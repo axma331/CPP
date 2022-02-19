@@ -1,9 +1,14 @@
 #include "MateriaSource.hpp"
 
 MateriaSource::MateriaSource(void) {
-	std::cout << "MateriaSource constructor called" << std::endl;
-	for (int i(0); i < MASS; ++i)
+	for (int i(0); i < SLOTS; ++i)
 		this->_materia[i] = nullptr;
+}
+
+MateriaSource::~MateriaSource(void) {
+	for (int i(0); i < SLOTS; ++i)
+		if (this->_materia[i] != nullptr)
+			delete this->_materia[i];
 }
 
 MateriaSource::MateriaSource(const MateriaSource& other) {
@@ -12,25 +17,17 @@ MateriaSource::MateriaSource(const MateriaSource& other) {
 
 MateriaSource&	MateriaSource::operator=(const MateriaSource& other) {
 	if (this != &other) {
-		for (int i(0); i < MASS; ++i)
-			if (this->_materia[i] != nullptr) {
+		for (int i(0); i < SLOTS; ++i) {
+			if (this->_materia[i] != nullptr)
 				delete this->_materia[i];
-				this->_materia[i] = other._materia[i]->clone();
-			}
+			this->_materia[i] = other._materia[i]->clone();
+		}
 	}
 	return *this;
 }
 
-MateriaSource::~MateriaSource(void) {
-	for (int i(0); i < MASS; ++i)
-		if (this->_materia[i] != nullptr) {
-			delete this->_materia[i];
-			this->_materia[i] = nullptr;
-		}
-}
-
 void	MateriaSource::learnMateria(AMateria* materia) {
-	for (int i(0); i < MASS; ++i) {
+	for (int i(0); i < SLOTS; ++i) {
 		if (this->_materia[i] == nullptr) {
 			this->_materia[i] = materia->clone();
 			return ;
@@ -38,12 +35,11 @@ void	MateriaSource::learnMateria(AMateria* materia) {
 	}	
 }
 
-AMateria*	MateriaSource::createMateria(std::string const & type) {
-	for (int i(0); i < MASS; ++i) {
+AMateria*	MateriaSource::createMateria(const std::string& type) {
+	for (int i(0); i < SLOTS; ++i)
 		if (this->_materia[i] != nullptr) {
-			if (!type.compare(this->_materia[i]->getType()))
+			if (!this->_materia[i]->getType().compare(type))
 				return this->_materia[i];
 		}
-	}
 	return nullptr;
 }

@@ -3,21 +3,23 @@
 
 #include "ICharacter.hpp"
 #include <iostream>
+#include <string>
 
+#define SLOTS	4
 
 class AMateria {
 public:
-	AMateria(void);
-	AMateria(const std::string & type);
-	AMateria(const AMateria & other);
-	virtual ~AMateria(void);
+	AMateria();
+	AMateria(const std::string& type);
+	virtual	~AMateria();
 
-	AMateria &operator= (const AMateria & other);
-		
-	const std::string & getType() const;
-	virtual void use(ICharacter& target);
-	virtual AMateria* clone() const = 0;
+	AMateria(const AMateria& other);
+	AMateria&	operator=(const AMateria & other);
 
+	const std::string&	getType() const;
+	virtual void		use(ICharacter& target);
+
+	virtual AMateria*	clone() const = 0;
 protected:
 	std::string	_type;
 };
