@@ -4,7 +4,7 @@ RM				=	rm -rf
 CXX				=	c++
 CXXFLAGS		=	-std=c++98
 CXXFLAGS		+=	-Wall -Wextra -Werror -Wshadow
-CXXFLAGS		+=	-g 
+CXXFLAGS		+=	-g
 
 HEADER_DIR		=	./includes/
 HEADER			=	$(addprefix $(HEADER_DIR),	AMateria.hpp		ICharacter.hpp		Character.hpp	\

@@ -33,7 +33,7 @@ const std::string&	Character::getName(void) const {
 
 void	Character::equip(AMateria* m) {
 	for (int i(0); i < SLOTS; ++i)
-		if (this->_inventory[i] == nullptr) {
+		if (this->_inventory[i] == nullptr && m) {
 			this->_inventory[i] = m->clone();
 			return ;
 		}
@@ -47,6 +47,6 @@ void	Character::unequip(int idx) {
 }
 
 void	Character::use(int idx, ICharacter& target) {
-	this->_inventory[idx]->AMateria::use(target);
+	this->_inventory[idx]->use(target);
 }
 
