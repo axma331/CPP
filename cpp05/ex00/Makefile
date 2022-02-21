@@ -1,4 +1,4 @@
-NAME			=	materia
+NAME			=	bureaucrat
 RM				=	rm -rf
 
 CXX				=	c++
@@ -7,10 +7,10 @@ CXXFLAGS		+=	-Wall -Wextra -Werror -Wshadow
 CXXFLAGS		+=	-g
 
 HEADER_DIR		=	./includes/
-HEADER			=	$(addprefix $(HEADER_DIR),	.hpp)
+HEADER			=	$(addprefix $(HEADER_DIR),	Bureaucrat.hpp)
 
 SRC_DIR			=	./srcs/
-SRC				=	main.cpp	.cpp
+SRC				=	main.cpp	Bureaucrat.cpp
 
 OBJ_DIR			=	./.objs/
 OBJ				=	$(addprefix $(OBJ_DIR), $(notdir $(SRC:%.cpp=%.o)))
