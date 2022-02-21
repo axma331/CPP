@@ -73,3 +73,40 @@ For example, the code below creates a RobotomyRequestForm targeted on "Ben- der"
     Form*   rrf;
     rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 }
+#include <iostream>
+#include <string>
+class B {
+public:
+B() : n(0) {
+  std::cout << “default construct\n”;
+}
+B(const B &other) {
+  std::cout << “copy construct\n”;
+  *this = other;
+}
+B& operator=(const B &other) {
+  std::cout << “operator=\n”;
+  if (this != &other) {
+    this->n = other.n;
+  }
+  return *this;
+}
+  int n;
+};
+class A {
+public:
+const B& getB(void) {
+  return b;
+}
+void setB(int n) {
+  b.n = n;
+}
+private:
+  B b;
+};
+int main() {
+  A a1;
+  a1.setB(3);
+  B b2 = a1.getB();
+  std::cout << b2.n << std::endl;
+}
