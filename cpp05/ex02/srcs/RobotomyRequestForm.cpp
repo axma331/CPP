@@ -17,11 +17,11 @@ RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 
 void	RobotomyRequestForm::drillingNoises(void) const {
 	std::cout << "Brrrr... Drrrr.." << std::endl;
-	srand(time(0));
+	srand(static_cast<unsigned int>(time(0)));
 	if (rand() % 2)
 		RobotomyRequestForm::RobotomyFailedException();
-	else
-		std::cout << this->_target << " has been robotomized successfully" << std::endl;
+	// else
+	std::cout << this->_target << " has been robotomized successfully" << std::endl;
 }
 
 const char*	RobotomyRequestForm::RobotomyFailedException::what(void) const throw() {
