@@ -19,11 +19,7 @@ void	RobotomyRequestForm::drillingNoises(void) const {
 	std::cout << "Brrrr... Drrrr.." << std::endl;
 	srand(static_cast<unsigned int>(time(0)));
 	if (rand() % 2)
-		RobotomyRequestForm::RobotomyFailedException();
-	// else
-	std::cout << this->_target << " has been robotomized successfully" << std::endl;
-}
-
-const char*	RobotomyRequestForm::RobotomyFailedException::what(void) const throw() {
-	throw	"Robotomy failed";
+		std::cout << "Robotomy failed" << std::endl;
+	else
+		std::cout << this->_target << " has been robotomized successfully" << std::endl;
 }

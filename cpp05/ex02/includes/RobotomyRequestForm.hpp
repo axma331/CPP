@@ -13,10 +13,6 @@ public:
 	RobotomyRequestForm(const RobotomyRequestForm&);
 	RobotomyRequestForm&	operator=(const RobotomyRequestForm&);
 
-	struct RobotomyFailedException : public std::exception {
-		const char*	what() const throw();
-	};
-
 	// virtual void	execute(const Bureaucrat&) const;
 	void	 drillingNoises() const;
 private:
