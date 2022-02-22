@@ -1,4 +1,4 @@
-NAME			=	bureaucrat
+NAME			=	forma
 RM				=	rm -rf
 
 CXX				=	c++
@@ -7,13 +7,15 @@ CXXFLAGS		+=	-Wall -Wextra -Werror -Wshadow
 CXXFLAGS		+=	-g
 
 HEADER_DIR		=	./includes/
-HEADER			=	$(addprefix $(HEADER_DIR),	Bureaucrat.hpp	Form.hpp	ShrubberyCreationForm.hpp)
+HEADER			=	$(addprefix $(HEADER_DIR),	Bureaucrat.hpp	Form.hpp	ShrubberyCreationForm.hpp RobotomyRequestForm.hpp)
 
 SRC_DIR			=	./srcs/
-SRC				=	main.cpp	Bureaucrat.cpp	Form.cpp	ShrubberyCreationForm.cpp
+SRC				=	main.cpp	Bureaucrat.cpp	Form.cpp	ShrubberyCreationForm.cpp	RobotomyRequestForm.cpp
 
 OBJ_DIR			=	./.objs/
 OBJ				=	$(addprefix $(OBJ_DIR), $(notdir $(SRC:%.cpp=%.o)))
+
+OUTFILE			=	*_shrubbery
 
 all:			$(NAME)		Makefile
 
@@ -32,6 +34,7 @@ clean:
 fclean:			clean
 				$(RM) $(NAME)
 				$(RM) $(OBJ_DIR)
+				$(RM) $(OUTFILE)
 
 re:				fclean all
 

@@ -15,10 +15,13 @@ public:
 	Form(const Form&);
 	Form&	operator=(const Form&);
 
-	struct GradeTooHighException: public std::exception {
+	struct GradeTooHighException : public std::exception {
 		const char* what() const throw();
 	};
-	struct GradeTooLowException: public std::exception {
+	struct GradeTooLowException	: public std::exception {
+		const char* what() const throw();
+	};
+	struct  DoesntSignedFormException : public std::exception {
 		const char* what() const throw();
 	};
 
@@ -28,6 +31,7 @@ public:
 	int					getGradeToExecute() const;
 	void				beSigned(const Bureaucrat&);
 	
+	// virtual void	execute(const Bureaucrat&) const = 0;
 private:
 	const std::string	_name;
 	const int			_gradeToSign;

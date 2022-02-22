@@ -20,11 +20,15 @@ Form&	Form::operator=(const Form& other) {
 }
 
 const char*	Form::GradeTooHighException::what(void) const throw() {
-	return	"Form error: grade too high!";
+	return	"grade is too high!";
 }
 
 const char*	Form::GradeTooLowException::what(void) const throw() {
-	return	"Form error: grade too low!";
+	return	"grade is too low!";
+}
+
+const char*	Form::DoesntSignedFormException::what(void) const throw() {
+	return	"the form is unsigned!";
 }
 
 const std::string&	Form::getName(void) const {
@@ -51,7 +55,7 @@ void	Form::beSigned(const Bureaucrat& bureaucrat) {
 }
 
 std::ostream&	operator<<(std::ostream& out, const Form& form) {
-	out << form.getName() << " has a next param:\nGrade to sign:\t\t" << form.getGradeToSign() \
+	out << "Form name: "<< form.getName() << "\nGrade to sign:\t\t" << form.getGradeToSign() \
 		<< "\nGrade to execute:\t"<< form.getGradeToExecute() \
 		<< "\nIs signed:\t\t" << form.getIsSigned() << std::endl;
 	return out;
