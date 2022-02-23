@@ -6,12 +6,15 @@ int main() {
 	try	{
 		Intern someRandomIntern;
 		Form* rrf;
-		rrf = someRandomIntern.makeForm("shrubbery request", "tree");
+		rrf = someRandomIntern.makeForm("robotomy request", "Car");
 
 		Bureaucrat v1("Boria", 20);
 
+	LINE
 		v1.signForm(*rrf);
+	LINE
 		v1.executeForm(*rrf);
+	LINE
 	} catch(const std::exception& e) {
 		std::cerr << e.what() << '\n';
 	}

@@ -11,10 +11,9 @@ Intern&	Intern::operator=(const Intern&) {
 }
 
 Form*	Intern::makeForm(const std::string& formName, const std::string& targetName) {
-	Form*	ptr = 0;
-	std::string	forms[3] = {"robotomy request", 
-								"shrubbery request",
-								"president rewuest"};
+	static std::string	forms[3] = {"shrubbery creation",
+							"robotomy request",
+							"president Pardon"};
 	int i(0);
 	while (i < 3 && forms[i].compare(formName) && ++i)
 		if (i == 3)
@@ -22,12 +21,11 @@ Form*	Intern::makeForm(const std::string& formName, const std::string& targetNam
 	std::cout << "Intern creates " << formName << std::endl;
 	switch (i) {
 		case 0:
-			return (ptr = new ShrubberyCreationForm(targetName));
+			return new ShrubberyCreationForm(targetName);
 		case 1:
-			return (ptr = new RobotomyRequestForm(targetName));
-			break;
+			return new RobotomyRequestForm(targetName);
 		case 2:
-			return (ptr = new PresidentialPardonForm(targetName));
+			return new PresidentialPardonForm(targetName);
 	}
 	return 0;
 }
