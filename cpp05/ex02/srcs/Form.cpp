@@ -53,8 +53,6 @@ void	Form::beSigned(const Bureaucrat& bureaucrat) {
 	this->_isSigned = true;
 }
 
-/* Не смотря на то, что класс абстрактный, в нем можно описать метод и
-	применять в наследника путем явного вызова. */
 void	Form::execute(const Bureaucrat& executor) const {
 	if (!this->_isSigned)
 		throw Form::DoesntSignedFormException();

@@ -38,6 +38,10 @@ const char*	ShrubberyCreationForm::DoesntOpenFile::what(void) const throw(){
 }
 
 void	ShrubberyCreationForm::execute(const Bureaucrat& executor) const{
-	Form::execute(executor);
-	this->drawAscii();
+	try {
+		Form::execute(executor);
+		this->drawAscii();
+	} catch (std::exception& executor) {
+		std::cout << executor.what() << std::endl;
+	}
 }
