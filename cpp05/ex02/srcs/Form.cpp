@@ -58,13 +58,13 @@ void	Form::beSigned(const Bureaucrat& bureaucrat) {
 void	Form::execute(const Bureaucrat& executor) const {
 	if (this->getIsSigned())
 		throw Form::DoesntSignedFormException();
-	if (this->getGradeToExecute() > executor.getGrade())
+	if (this->getGradeToExecute() < executor.getGrade())
 		throw	Form::GradeTooLowException();
 }
 
 std::ostream&	operator<<(std::ostream& out, const Form& form) {
 	out << "Form name: "<< form.getName() << "\nGrade to sign:\t\t" << form.getGradeToSign() \
 		<< "\nGrade to execute:\t"<< form.getGradeToExecute() \
-		<< "\nIs signed:\t\t" << form.getIsSigned() << std::endl;
+		<< "\nIs signed:\t\t" << (form.getIsSigned() ? "yes" : "no") << std::endl;
 	return out;
 }

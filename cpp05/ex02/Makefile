@@ -1,4 +1,4 @@
-NAME			=	form
+NAME			=	forms
 RM				=	rm -rf
 
 CXX				=	c++
