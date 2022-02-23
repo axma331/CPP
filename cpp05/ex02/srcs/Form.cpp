@@ -56,15 +56,15 @@ void	Form::beSigned(const Bureaucrat& bureaucrat) {
 /* Не смотря на то, что класс абстрактный, в нем можно описать метод и
 	применять в наследника путем явного вызова. */
 void	Form::execute(const Bureaucrat& executor) const {
-	if (this->getIsSigned())
+	if (!this->_isSigned)
 		throw Form::DoesntSignedFormException();
-	if (this->getGradeToExecute() < executor.getGrade())
+	if (this->_gradeToExecute < executor.getGrade())
 		throw	Form::GradeTooLowException();
 }
 
 std::ostream&	operator<<(std::ostream& out, const Form& form) {
 	out << "Form name: "<< form.getName() << "\nGrade to sign:\t\t" << form.getGradeToSign() \
 		<< "\nGrade to execute:\t"<< form.getGradeToExecute() \
-		<< "\nIs signed:\t\t" << (form.getIsSigned() ? "yes" : "no") << std::endl;
+		<< "\nIs signed:\t\t" << (form.getIsSigned() ? "true" : "false") << std::endl;
 	return out;
 }

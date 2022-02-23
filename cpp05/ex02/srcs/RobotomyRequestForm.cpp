@@ -26,4 +26,5 @@ void	RobotomyRequestForm::drillingNoises(void) const {
 
 void	RobotomyRequestForm::execute(const Bureaucrat& executor) const {
 	Form::execute(executor);
+	this->drillingNoises();
 }

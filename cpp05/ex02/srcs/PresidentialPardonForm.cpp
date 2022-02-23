@@ -21,6 +21,5 @@ void	PresidentialPardonForm::pardon(void) const {
 
 void	PresidentialPardonForm::execute(const Bureaucrat& executor) const {
 	Form::execute(executor);
+	this->pardon();
 }
-
-

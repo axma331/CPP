@@ -3,6 +3,8 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
+#define LINE	std::cout << "-------------------" << std::endl;
+
 int main() {
 	srand(time(NULL));
 
@@ -14,9 +16,13 @@ int main() {
 	std::cout << "\n=============ShrubberyCreationForm============" << std::endl;
 	ShrubberyCreationForm formA("FormA");
 	std::cout << formA << std::endl;
+	LINE
 	good.executeForm(formA);
+	LINE
 	good.signForm(formA);
+	LINE
 	good.executeForm(formA);
+	LINE
 	bad.executeForm(formA);
 
 	std::cout << "\n==============RobotomyRequestForm=============" << std::endl;
