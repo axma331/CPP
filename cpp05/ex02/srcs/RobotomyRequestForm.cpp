@@ -23,3 +23,7 @@ void	RobotomyRequestForm::drillingNoises(void) const {
 	else
 		std::cout << this->_target << " has been robotomized successfully" << std::endl;
 }
+
+void	RobotomyRequestForm::execute(const Bureaucrat& executor) const {
+	Form::execute(executor);
+}

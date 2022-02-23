@@ -47,11 +47,19 @@ int	Form::getGradeToExecute(void) const {
 	return this->_gradeToExecute;
 }
 
-
 void	Form::beSigned(const Bureaucrat& bureaucrat) {
 	if (this->_gradeToSign < bureaucrat.getGrade())
 			throw Form::GradeTooLowException();
 	this->_isSigned = true;
+}
+
+/* Не смотря на то, что класс абстрактный, в нем можно описать метод и
+	применять в наследника путем явного вызова. */
+void	Form::execute(const Bureaucrat& executor) const {
+	if (this->getIsSigned())
+		throw Form::DoesntSignedFormException();
+	if (this->getGradeToExecute() > executor.getGrade())
+		throw	Form::GradeTooLowException();
 }
 
 std::ostream&	operator<<(std::ostream& out, const Form& form) {

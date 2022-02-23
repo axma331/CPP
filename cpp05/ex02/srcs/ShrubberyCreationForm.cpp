@@ -33,10 +33,10 @@ void	ShrubberyCreationForm::drawAscii(void) const {
 	outfile.close();
 }
 
-// void	ShrubberyCreationForm::execute(const Bureaucrat& executor) const{}
-
-
-
 const char*	ShrubberyCreationForm::DoesntOpenFile::what(void) const throw(){
-		throw	"Doesn`t open the file";
+		return	"Doesn`t open the file";
+}
+
+void	ShrubberyCreationForm::execute(const Bureaucrat& executor) const{
+	Form::execute(executor);
 }

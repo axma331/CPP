@@ -13,8 +13,8 @@ public:
 	RobotomyRequestForm(const RobotomyRequestForm&);
 	RobotomyRequestForm&	operator=(const RobotomyRequestForm&);
 
-	// virtual void	execute(const Bureaucrat&) const;
 	void	 drillingNoises() const;
+	virtual void	execute(const Bureaucrat& executor) const;
 private:
 	std::string	_target;
 };

@@ -17,7 +17,7 @@ public:
 	};	
 
 	void			drawAscii() const;
-	// virtual void	execute(const Bureaucrat&) const;
+	virtual void	execute(const Bureaucrat& execotor) const;
 private:
 	std::string	_target;
 };
