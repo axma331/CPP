@@ -7,10 +7,10 @@ CXXFLAGS		+=	-Wall -Wextra -Werror -Wshadow
 CXXFLAGS		+=	-g
 
 HEADER_DIR		=	./includes/
-HEADER			=	$(addprefix $(HEADER_DIR), )
+HEADER			=	$(addprefix $(HEADER_DIR), Conversion.hpp)
 
 SRC_DIR			=	./srcs/
-SRC				=	main.cpp
+SRC				=	main.cpp Conversion.cpp
 
 OBJ_DIR			=	./.objs/
 OBJ				=	$(addprefix $(OBJ_DIR), $(notdir $(SRC:%.cpp=%.o)))
