@@ -1,4 +1,4 @@
-NAME			=	a.out
+NAME			=	convert
 RM				=	rm -rf
 
 CXX				=	c++
