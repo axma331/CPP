@@ -55,12 +55,12 @@ void	Conversion::print(){
 		std::cout << exception << "\n";
 	}
 	try {
-		std::cout << "float:\t" << std::fixed << std::setprecision(1) << this->toFloat() << "f\n";
+		std::cout << "float:\t" << std::fixed << std::setprecision(1) << this->toFloat() << "f\n"; // Поставить конец форматирования строки
 	} catch (const char* exception) {
 		std::cout << exception << "\n";
 	}
 	try {
-		std::cout << "double:\t" << this->getDouble() << "\n";
+		std::cout << "double:\t" << std::fixed << std::setprecision(1) << this->getDouble() << "\n";
 	} catch (const char* exception) {
 		std::cout << exception << "\n";
 	}
