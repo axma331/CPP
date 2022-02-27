@@ -2,9 +2,10 @@
 # define CONVERSION_HPP
 
 #include <iostream>
+#include <iomanip>
 #include <string>
-#include <ostream>
 #include <cstdlib>
+#include <cmath>
 #include <limits>
 
 class Conversion {
