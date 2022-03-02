@@ -8,8 +8,4 @@ struct Base {
 	virtual ~Base();
 };
 
-
-
-
-
 #endif
