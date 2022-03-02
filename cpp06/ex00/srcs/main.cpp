@@ -6,8 +6,6 @@ int main(int ac, char *av[]) {
 		std::cout << "Invalid number of arguments!" << std::endl;
 		return 1;
 	}
-	// (void)(av);
-	// Conversion A;
 	Conversion A(av[1]);
 	A.print();
 }

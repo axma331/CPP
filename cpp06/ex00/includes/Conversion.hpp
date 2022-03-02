@@ -4,7 +4,6 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
-#include <cstdlib>
 #include <cmath>
 #include <limits>
 
@@ -16,11 +15,11 @@ public:
 	Conversion(const Conversion&);
 	Conversion&	operator=(const Conversion&);
 
+	void	print();
 	char	toChar();
 	int		toInt();
 	float	toFloat();
-	double	getDouble();
-	void	print();
+	double	toDouble();
 private:
 	double	_data;
 };
