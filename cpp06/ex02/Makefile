@@ -1,4 +1,4 @@
-NAME			=	classes
+NAME			=	identify
 RM				=	rm -rf
 
 CXX				=	c++
