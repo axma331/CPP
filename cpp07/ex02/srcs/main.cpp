@@ -1,6 +1,7 @@
 #include "Array.hpp"
+#include <cstdlib>
 
-int main() {
-
+int main()
+{
 	return 0;
 }

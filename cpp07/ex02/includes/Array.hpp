@@ -11,8 +11,9 @@ struct Array {
 	Array(const Array<T>&);
 	~Array();
 
-	Array&	operator=(const Array<T>&);
-	T&		operator[](size_t idx);
+	Array&		operator=(const Array<T>&);
+	T&			operator[](const size_t idx);
+	const T&	operator[](const size_t idx) const;
 
 	struct OutOfRangeException: std::exception {
 		const char*	what() const throw();
@@ -28,11 +29,11 @@ template<typename T>
 Array<T>::Array(): _n(0), _mass(0) {}
 
 template<typename T>
-Array<T>::Array(unsigned int n):_n(n), _mass(new T[n]) {}
+Array<T>::Array(unsigned int n): _n(n), _mass(new T[n]) {}
 
 template<typename T>
 Array<T>::~Array() {
-	if (_mass)
+	if (_mass)		// Прооверить есть необходимость проверять на существование массива? Так же как быть при выбросывании исключения?
 		delete []_mass;
 }
 
@@ -41,7 +42,7 @@ Array<T>::Array(const Array<T>& other) { *this = other; }
 
 template<typename T>
 Array<T>&	Array<T>::operator=(const Array<T>& other) {
-	if (this == &other)
+	if (this == &other || !other._mass)
 		return *this;
 	this->_n = other._n;
 	this->_mass = new T[this->_n];
@@ -51,11 +52,12 @@ Array<T>&	Array<T>::operator=(const Array<T>& other) {
 }
 
 template<typename T>
-T&	Array<T>::operator[](size_t idx) {
-	if (idx < 0 && idx > _n)
-		throw OutOfRangeException();
-	return this->_mass[idx];
-}
+T&			Array<T>::operator[](const size_t idx) {
+	return idx < _n ? this->_mass[idx] : throw OutOfRangeException(); }
+
+template<typename T>
+const T&	Array<T>::operator[](const size_t idx) const {
+	return idx < _n ? this->_mass[idx] : throw OutOfRangeException(); }
 
 template<typename T>
 size_t	Array<T>::size() const { return this->_n; }
