@@ -2,18 +2,23 @@
 # define ARRAY_HPP
 
 #include <iostream>
+#include <exception>
 
 template<class T>
 struct Array {
 	Array();
 	Array(unsigned int n);
+	Array(const Array<T>&);
 	~Array();
 
-	Array(const Array<T>&);
 	Array&	operator=(const Array<T>&);
-	T&	operator[](size_t idx);
-	size_t	size() const;
+	T&		operator[](size_t idx);
 
+	struct OutOfRangeException: std::exception {
+		const char*	what() const throw();
+	};
+
+	size_t	size() const;
 private:
 	unsigned int	_n;
 	T*				_mass;
@@ -47,13 +52,17 @@ Array<T>&	Array<T>::operator=(const Array<T>& other) {
 
 template<typename T>
 T&	Array<T>::operator[](size_t idx) {
-	if ( idx < 0 && idx > _n)
-		throw "segmentation fault!";
+	if (idx < 0 && idx > _n)
+		throw OutOfRangeException();
 	return this->_mass[idx];
 }
 
 template<typename T>
 size_t	Array<T>::size() const { return this->_n; }
 
+template<typename T>
+const char*	Array<T>::OutOfRangeException::what() const throw() {
+	return "Segmentation fault!";
+}
 
 #endif

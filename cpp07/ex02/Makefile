@@ -10,7 +10,7 @@ HEADER_DIR		=	./includes/
 HEADER			=	$(addprefix $(HEADER_DIR), Array.hpp)
 
 SRC_DIR			=	./srcs/
-SRC				=	main.cpp Array.cpp
+SRC				=	main.cpp
 
 OBJ_DIR			=	./.objs/
 OBJ				=	$(addprefix $(OBJ_DIR), $(notdir $(SRC:%.cpp=%.o)))
