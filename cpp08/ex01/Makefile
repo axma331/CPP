@@ -1,4 +1,4 @@
-NAME			=	iter
+NAME			=	span
 RM				=	rm -rf
 
 CXX				=	c++
@@ -7,10 +7,10 @@ CXXFLAGS		+=	-Wall -Wextra -Werror -Wshadow
 CXXFLAGS		+=	-g
 
 HEADER_DIR		=	./includes/
-HEADER			=	$(addprefix $(HEADER_DIR), iter.hpp)
+HEADER			=	$(addprefix $(HEADER_DIR), Span.hpp)
 
 SRC_DIR			=	./srcs/
-SRC				=	main.cpp
+SRC				=	main.cpp Span.cpp
 
 OBJ_DIR			=	./.objs/
 OBJ				=	$(addprefix $(OBJ_DIR), $(notdir $(SRC:%.cpp=%.o)))
