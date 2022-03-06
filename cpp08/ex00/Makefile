@@ -1,4 +1,4 @@
-NAME			=	template
+NAME			=	iter
 RM				=	rm -rf
 
 CXX				=	c++
@@ -7,7 +7,7 @@ CXXFLAGS		+=	-Wall -Wextra -Werror -Wshadow
 CXXFLAGS		+=	-g
 
 HEADER_DIR		=	./includes/
-HEADER			=	$(addprefix $(HEADER_DIR), Template.hpp)
+HEADER			=	$(addprefix $(HEADER_DIR), Easyfind.hpp)
 
 SRC_DIR			=	./srcs/
 SRC				=	main.cpp
